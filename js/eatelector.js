@@ -1,11 +1,11 @@
 const EAT_ELECTOR_API_BASE_URL = "http://localhost:8080";
-const API_ENDPOINT_ADD_RESTAURANT = EAT_ELECTOR_API_BASE_URL + "/restaurant"
-const API_ENDPOINT_GET_RANDOM_RESTAURANT = EAT_ELECTOR_API_BASE_URL + "/restaurant/random"
+const API_ENDPOINT_ADD_RESTAURANT = EAT_ELECTOR_API_BASE_URL + "/restaurants"
+const API_ENDPOINT_GET_RANDOM_RESTAURANT = EAT_ELECTOR_API_BASE_URL + "/restaurants/random"
+const API_ENDPOINT_DELETE_ALL_RESTAURANTS = EAT_ELECTOR_API_BASE_URL + "/restaurants"
 
 const RESPONSE_STATUS_SUCCESS = "SUCCESS";
 const RESPONSE_STATUS_ERROR = "ERROR";
 const RESPONSE_STATUS_NO_RECORDS_FOUND = "NO_RECORDS_FOUND";
-
 
 $(document).ready(function(){
 
@@ -16,15 +16,18 @@ $(document).ready(function(){
             return;
         }
         addNewRestaurant(restaurantName);
-
     });
 
     $("#btnShowRandomRestaurant").click(function() {
         displayRandomRestaurant();
     });
 
-    $("#btnNewLunch").click(function() {
-        $("#newLunchConfirmationModal").modal('toggle');
+    $("#btnDeleteRestaurantsRequest").click(function() {
+        $("#deleteRestaurantsConfirmationModal").modal('toggle');
+    });
+
+    $("#btnDeleteRestaurantsConfirmation").click(function() {
+        deleteAllRestaurants();
     });
 
 });
@@ -133,4 +136,41 @@ function displayRandomRestaurant() {
             console.error("Fetch error:", error);
             displayMessageDialog("Error occurred!", "Please try again later!");
         });
+}
+
+function deleteAllRestaurants() {
+
+    const requestOptions = {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    fetch(API_ENDPOINT_DELETE_ALL_RESTAURANTS, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                displayMessageDialog("Error occurred!", "Please try again later!");
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            switch (data.status) {
+                case RESPONSE_STATUS_SUCCESS:
+                    displayMessageDialog("Success!", "All restaurants deleted successfully.");
+                    break;
+                case RESPONSE_STATUS_ERROR:
+                    displayMessageDialog("Error!", data.message);
+                    break;
+                default:
+                    displayMessageDialog("Error!", "Please try again later!");
+            }
+
+        })
+        .catch(error => {
+            console.error('There was a problem with the DELETE request:', error);
+            displayMessageDialog("Error occurred!", "Please try again later!");
+        });
+
 }

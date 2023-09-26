@@ -38,9 +38,14 @@
                 </div>
             </div>
 
-
             <div class="mt-4">
-                <button type="button" id="btnShowRandomRestaurant" class="btn btn-success">Show Random Restaurant</button>
+                <button type="button" id="btnDeleteRestaurantsRequest" class="btn btn-outline-success"
+                        data-toggle="modal" data-target="#deleteRestaurantsConfirmationModal">
+                    Delete Stored Restaurants
+                </button>
+                <button type="button" id="btnShowRandomRestaurant" class="btn btn-success">
+                    Show Random Restaurant
+                </button>
             </div>
 
         </div>
@@ -89,6 +94,31 @@
             </div>
         </div>
         <!-- End: Message dialog -->
+
+        <!-- Start: Delete stored restaurants confirmation dialog -->
+        <div class="modal fade" id="deleteRestaurantsConfirmationModal" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Are you sure?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This will erase all stored restaurants.<br>This action can not be undone!</p>
+                    </div>
+                    <!-- End: Modal body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="btnDeleteRestaurantsConfirmation"
+                                data-bs-dismiss="modal">
+                            Delete Restaurants
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Delete stored restaurants confirmation dialog -->
 
     </div> <!-- End: .container -->
 
