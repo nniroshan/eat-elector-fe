@@ -25,21 +25,20 @@
 
                     <form id="addRestaurantForm">
                         <div class="form-group mb-3">
-                            <label for="restaurantName">Restaurant Name</label>
-                            <input type="text" class="form-control" id="restaurantName"
-                                   minlength="1" maxlength="255" placeholder="Restaurant Name">
+                            <label class="form-label" for="restaurantName">Restaurant Name</label>
+                            <input type="text" class="form-control" id="restaurantName" minlength="1" maxlength="255">
                         </div>
 
                         <div>
-                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                            <button type="submit" class="btn btn-success">Add Restaurant</button>
+                            <button type="submit" class="btn btn-success float-end">Add Restaurant</button>
+                            <button type="reset" class="btn btn-outline-secondary me-2 float-end">Reset</button>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div class="mt-4">
-                <button type="button" id="btnDeleteRestaurantsRequest" class="btn btn-outline-success"
+            <div class="my-4">
+                <button type="button" id="btnDeleteRestaurantsRequest" class="btn btn-outline-success me-2"
                         data-toggle="modal" data-target="#deleteRestaurantsConfirmationModal">
                     Delete Stored Restaurants
                 </button>
