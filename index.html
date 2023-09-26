@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Eat Elector - Decide Fast! Save Time! Eat Together!</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href='css/boxicons.min.css' rel='stylesheet'>
+        <link href="css/eatelector.css" rel="stylesheet" />
+    </head>
+    <body>
+
+    <div class="container">
+
+        <!-- Start: Content -->
+        <div class="mx-auto p-3 m-3 border rounded shadow d-flex flex-column justify-content-center align-items-center">
+
+            <h1 class="text-success">Eat Elector</h1>
+            <p><em>Decide Fast! Save Time!! Eat Together!!!</em></p>
+            <hr>
+
+            <div class="card w-50">
+                <div class="card-header">Add New Restaurant</div>
+                <div class="card-body py-3 px-5">
+
+                    <form id="addRestaurantForm">
+                        <div class="form-group mb-3">
+                            <label for="restaurantName">Restaurant Name</label>
+                            <input type="text" class="form-control" id="restaurantName"
+                                   minlength="1" maxlength="255" placeholder="Restaurant Name">
+                        </div>
+
+                        <div>
+                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            <button type="submit" class="btn btn-success">Add Restaurant</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="mt-4">
+                <button type="button" id="btnShowRandomRestaurant" class="btn btn-success">Show Random Restaurant</button>
+            </div>
+
+        </div>
+        <!-- End : Content-->
+
+        <!-- Start: Random Restaurant modal -->
+        <div class="modal fade" id="randomRestaurantModal" tabindex="-1"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Let's Eat at</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-center">
+
+                        <h1 id="randomRestaurantModalBody"></h1>
+
+                    </div> <!-- End: Modal body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Random Restaurant modal -->
+
+        <!-- Start: Message dialog -->
+        <div class="modal fade" id="messageDialogModal" tabindex="-1"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="messageDialogTitle"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <P id="messageDialogMessageBody"></P>
+
+                    </div> <!-- End: Modal body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Message dialog -->
+
+    </div> <!-- End: .container -->
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/eatelector.js"></script>
+
+    </body>
+</html>
